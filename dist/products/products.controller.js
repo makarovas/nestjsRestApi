@@ -21,6 +21,9 @@ let ProductsController = class ProductsController {
     constructor(productsService) {
         this.productsService = productsService;
     }
+    getAll() {
+        return this.productsService.getAll();
+    }
     getOne(id) {
         return this.productsService.getById(id);
     }
@@ -28,19 +31,25 @@ let ProductsController = class ProductsController {
         return this.productsService.create(createProductDto);
     }
     remove(id) {
-        return `Remove ${id}`;
+        return this.productsService.remove(id);
     }
     update(updateProductDto, id) {
-        return `UPdating ${id}`;
+        return this.productsService.update(id, updateProductDto);
     }
     updateLocal() { }
 };
+__decorate([
+    common_1.Get(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ProductsController.prototype, "getAll", null);
 __decorate([
     common_1.Get(':id'),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "getOne", null);
 __decorate([
     common_1.Post(),
@@ -55,14 +64,15 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "remove", null);
 __decorate([
     common_1.Put(':id'),
-    __param(0, common_1.Body()), __param(1, common_1.Param('id')),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [update_product_dto_1.UpdateProductDto, String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "update", null);
 __decorate([
     common_1.Patch(),

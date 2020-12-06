@@ -1586,19 +1586,19 @@
         "signature": "924732dfbdfd120ee07cf733c7c65018f24ce9ddf06ed9ccf3cad8fdc2e33585",
         "affectsGlobalScope": false
       },
-      "../src/products/products.service.ts": {
-        "version": "d2bcfb96a3d19786c9e57cc7e1737c1c73c1917ab2b1da8f8de5a26ee6a05445",
-        "signature": "26a56e897af4b55bc43871e60d03926b2d372a0c2ca5ff195c921c20c0688648",
-        "affectsGlobalScope": false
-      },
-      "../src/products/products.controller.ts": {
-        "version": "a3a5cc724d122c289cc0c6e83d50f9e8cf6a06380172aabb3183f70807a3ac42",
-        "signature": "a69a2fa0b0173857d583913219fd88f0bb306c92d175e42f2ffff3e124d974a5",
-        "affectsGlobalScope": false
-      },
       "../src/products/schemas/product.schema.ts": {
         "version": "f0a7b3f5a7ccb2ece18690d686b703631f23273f8178584a2068f84480995d09",
         "signature": "8fbb8a9825f6291e8399541e48d3f3537fd0fafd519d46cbafd6682ee2309a92",
+        "affectsGlobalScope": false
+      },
+      "../src/products/products.service.ts": {
+        "version": "17afabb96def33e2dc7defb9894951433257a05d9761130ab7c8d11d982a047e",
+        "signature": "388b41a93d57d9b7aa5d3ae6e599a4c78cb5d1ca9d6c967c141458dc08829e28",
+        "affectsGlobalScope": false
+      },
+      "../src/products/products.controller.ts": {
+        "version": "b67ec2766e51f11df7d45e6ad3eda9688e1d9a29ced344c17d6d3a419e4d79b8",
+        "signature": "55e674f5c362b3c8d4ec6c1850ab4ba423b6e686f97e80a2833e6164275e7833",
         "affectsGlobalScope": false
       },
       "../src/products/products.module.ts": {
@@ -1607,7 +1607,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "904147a15c80af0878da69af73a1bc4aa300f419ec15c041a61e4123930f6502",
+        "version": "54951b1bf5b06df6248a4364056abda7c7ae9c583370ca0d65083f1d12f7f98f",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -4553,6 +4553,7 @@
         "../node_modules/mongoose/index.d.ts",
         "../src/products/create-pdoduct.dto.ts",
         "../src/products/products.service.ts",
+        "../src/products/schemas/product.schema.ts",
         "../src/products/update-product.dto.ts"
       ],
       "../src/products/products.module.ts": [
@@ -4566,9 +4567,12 @@
       ],
       "../src/products/products.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
-        "../src/products/create-pdoduct.dto.ts"
+        "../src/products/create-pdoduct.dto.ts",
+        "../src/products/schemas/product.schema.ts",
+        "../src/products/update-product.dto.ts"
       ],
       "../src/products/schemas/product.schema.ts": [
         "../node_modules/@nestjs/mongoose/index.d.ts",
@@ -5990,10 +5994,14 @@
       "../src/products/products.controller.ts": [
         "../src/products/create-pdoduct.dto.ts",
         "../src/products/products.service.ts",
+        "../src/products/schemas/product.schema.ts",
         "../src/products/update-product.dto.ts"
       ],
       "../src/products/products.service.ts": [
-        "../src/products/create-pdoduct.dto.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/products/create-pdoduct.dto.ts",
+        "../src/products/schemas/product.schema.ts",
+        "../src/products/update-product.dto.ts"
       ],
       "../src/products/schemas/product.schema.ts": [
         "../node_modules/mongoose/index.d.ts"

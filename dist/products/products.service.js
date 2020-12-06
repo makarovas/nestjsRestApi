@@ -5,25 +5,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsService = void 0;
 const common_1 = require("@nestjs/common");
+const mongoose_1 = require("@nestjs/mongoose");
+const mongoose_2 = require("mongoose");
+const product_schema_1 = require("./schemas/product.schema");
 let ProductsService = class ProductsService {
-    constructor() {
+    constructor(productModel) {
+        this.productModel = productModel;
         this.products = [];
     }
-    getAll() {
-        return this.products;
+    async getAll() {
+        return this.productModel.find().exec();
     }
-    getById(id) {
-        return this.products.find((p) => p.id === id);
+    async getById(id) {
+        return this.productModel.findById(id);
     }
-    create(productsDto) {
-        return this.products.push(Object.assign(Object.assign({}, productsDto), { id: Date.now().toString() }));
+    async create(productsDto) {
+        const newProduct = new this.productModel(productsDto);
+        return newProduct.save();
+    }
+    async remove(id) {
+        return this.productModel.findByIdAndRemove(id);
+    }
+    async update(id, productDto) {
+        return this.productModel.findByIdAndUpdate(id, productDto, { new: true });
     }
 };
 ProductsService = __decorate([
-    common_1.Injectable()
+    common_1.Injectable(),
+    __param(0, mongoose_1.InjectModel(product_schema_1.Product.name)),
+    __metadata("design:paramtypes", [mongoose_2.Model])
 ], ProductsService);
 exports.ProductsService = ProductsService;
 //# sourceMappingURL=products.service.js.map
